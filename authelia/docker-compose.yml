@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  authelia:
+    image: ghcr.io/authelia/authelia:latest
+    command:
+      - "--config"
+      - "/etc/authelia/config.yml,/etc/authelia/access-control.yml"
+    container_name: authelia
+    environment:
+      # https://www.authelia.com/configuration/methods/secrets/
+      AUTHELIA_JWT_SECRET_FILE: /mnt/vault/secrets/AUTHELIA_JWT_SECRET
+      AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: /mnt/vault/secrets/AUTHELIA_NOTIFIER_SMTP_PASSWORD
+      AUTHELIA_SESSION_SECRET_FILE: /mnt/vault/secrets/AUTHELIA_SESSION_SECRET
+      AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE: /mnt/vault/secrets/AUTHELIA_STORAGE_ENCRYPTION_KEY
+      TZ: Europe/London
+    labels:
+      traefik.enable: true
+      traefik.http.routers.authelia.entrypoints: web-secure
+      traefik.http.routers.authelia.rule: Host(`auth.andronics.io`)
+      traefik.http.services.authelia.loadbalancer.passHostHeader: true
+    networks:
+      - proxy
+    restart: unless-stopped
+    volumes:
+      - ./etc:/etc/authelia
+      - ./lib:/var/lib/authelia
+      - ./log:/var/log/authelia
+      - vault:/mnt/vault
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  vault:
+    external: true
+
+    
+
+      
+      

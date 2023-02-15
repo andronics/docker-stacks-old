@@ -1,0 +1,15 @@
+access_control:
+  
+  default_policy: one_factor
+  
+  rules:
+    
+    # Bypass - Domains
+    - policy: bypass
+      domain:
+        - 'auth.andronics.io'
+    
+    # 2FA - Domains
+    - policy: two_factor
+      domain:
+        - 'traefik.andronics.io'
