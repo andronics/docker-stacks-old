@@ -1,0 +1,179 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/v5/search for icons options
+
+title: "Dashboard"
+subtitle: "Andronics"
+logo: "logo.png"
+icon: "fas fa-server" # Optional icon
+columns: 2
+
+connectivityCheck: true
+
+proxy:
+  useCredentials: true
+
+header: true
+# footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
+
+defaults:
+  layout: columns # columns, list
+  colorTheme: dark # auto, light, dark
+
+
+# Optional theme customization
+theme: default
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#ffffff"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+
+# Some pre-defined tag styles. reference these using <<: *{NAME} inside an item definition; For Example, <<: *Apps
+tags: 
+  Favourite: &Favourite
+    - tag: "Favourite"
+      tagstyle: "is-medium is-primary"
+  External: &External
+    - tag: "External App"
+      tagstyle: "is-medium is-danger"
+  Docker: &Docker
+    - tag: "Docker App"
+      tagstyle: "is-medium is-success"
+
+# Optional navbar
+links:
+  - name: "Sign Out"
+    icon: "fab fa-github"
+    url: "https://auth.andronics.io/logout?rd=https://andronics.io&rm=GET"
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+
+  - name: "DevOps"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Authelia"
+        logo: "assets/logos/authelia.png"
+        subtitle: "SSO with TOTP, WebAuth and Duo"
+        url: "https://auth.andronics.io"
+      - name: "Portainer"
+        logo: "assets/logos/portainer.png"
+        subtitle: "Container Management Platform"
+        url: "https://portainer.andronics.io"
+      - name: "Traefik"
+        logo: "assets/logos/traefik.png"
+        subtitle: "Cloud Native Application Networking"
+        url: "https://traefik.andronics.io"
+
+  - name: "Messaging"
+    icon: "fas fa-comments"
+    items:
+      - name: "Gmail"
+        logo: "assets/logos/gmail.png"
+        subtitle: "Google Email Service"
+        url: "https://mail.google.com"
+        <<: *External
+      - name: "Slack"
+        logo: "assets/logos/slack.png"
+        subtitle: "Instant Messaging For Teams"
+        url: "https://app.slack.com/client/T02GR89MNMQ"
+        <<: *External
+      - name: "SMS"
+        logo: "assets/logos/sms.svg"
+        subtitle: "Android SMS Messaging"
+        url: "https://messages.android.com"
+        <<: *External
+      - name: "WhatsApp"
+        logo: "assets/logos/whatsapp.png"
+        subtitle: "Multi Platform Messaging"
+        url: "https://web.whatsapp.com"
+        <<: *External
+
+  - name: "News"
+    icon: "fas fa-newspaper"
+    items:
+      - name: "BBC"
+        logo: "assets/logos/bbc-news.png"
+        subtitle: "Media Server"
+        url: "https://www.bbc.co.uk/news/"
+        <<: *External
+      - name: "Derry Now"
+        logo: "assets/logos/derry-now.png"
+        subtitle: "Media Server"
+        url: "https://www.derrynow.com/"
+        <<: *External
+      - name: "Google"
+        logo: "assets/logos/google-news.png"
+        subtitle: "Media Server"
+        url: "https://news.google.com/"
+        <<: *External
+
+  - name: "Streaming Services"
+    icon: "fas fa-photo-video"
+    items:
+      - name: "Curiosity Stream"
+        logo: "assets/logos/curiosity-stream.webp"
+        subtitle: "Media Server"
+        url: "https://curiositystream.com"
+        <<: *External
+      - name: "Emby"
+        logo: "assets/logos/emby.png"
+        subtitle: "Media Server"
+        url: "https://emby.andronics.io/"
+        <<: *Docker
+      - name: "iPlayer"
+        logo: "assets/logos/bbc-iplayer.svg"
+        subtitle: "Media Server"
+        url: "https://www.bbc.co.uk/iplayer"
+        <<: *External
+      - name: "Nebula"
+        logo: "assets/logos/nebula.png"
+        subtitle: "Media Server"
+        url: "https://nebula.app"
+        <<: *External
+      - name: "Plex"
+        logo: "assets/logos/plex.png"
+        subtitle: "Media Server"
+        url: "https://plex.andronics.io/"
+        <<: *Docker
+      - name: "Spotify"
+        logo: "assets/logos/spotify.png"
+        subtitle: "Media Server"
+        url: "https://open.spotify.com/browse/featured"
+        <<: *External
+      - name: "TikTok"
+        logo: "assets/logos/tiktok.png"
+        subtitle: "Media Server"
+        url: "https://www.tiktok.com/"
+        <<: *External
+      - name: "Youtube"
+        logo: "assets/logos/youtube.png"
+        subtitle: "Media Server"
+        url: "https://www.youtube.com"
+        <<: *External
+ 

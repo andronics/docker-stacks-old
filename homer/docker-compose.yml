@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  homer:
+    image: b4bz/homer:latest
+    container_name: homer
+    environment:
+      UID: 1000
+      GID: 1000
+    labels:
+      traefik.enable: true
+      traefik.http.routers.homer.entrypoints: web-secure
+      traefik.http.routers.homer.rule: Host(`andronics.io`)
+      traefik.http.services.homer.loadbalancer.passHostHeader: true
+    networks:
+      - proxy
+    restart: unless-stopped
+    volumes:
+      - ./assets:/www/assets
+
+networks:
+  proxy:
+    external: true
+
+    
+
+      
+      
