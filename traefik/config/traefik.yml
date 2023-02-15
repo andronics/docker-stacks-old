@@ -1,0 +1,63 @@
+## traefik.yml
+## https://github.com/traefik/traefik/blob/master/traefik.sample.yml
+
+accessLog:
+  filePath: /var/log/traefik/access.log
+  format: common
+
+api:
+  insecure: false
+  dashboard: true
+  debug: false
+
+certificatesResolvers:
+  le-acme-production:
+    acme:
+      caServer: https://acme-v02.api.letsencrypt.org/directory
+      email: "andronics@gmail.com"
+      storage: "/mnt/vault/acme/production.json"
+      httpChallenge:
+        entryPoint: web-insecure
+  le-acme-staging:
+    acme:
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      email: "andronics@gmail.com"
+      storage: "/mnt/vault/acme/staging.json"
+      httpChallenge:
+        entryPoint: web-insecure
+         
+entryPoints:
+  web-insecure:
+    address: :80/tcp
+    http:
+      redirections:
+        entryPoint:
+          scheme: https
+          to: web-secure
+  web-secure:
+    address: :443/tcp
+    http:
+      tls:
+        certResolver: le-acme-production
+      
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+log:
+  filePath: /var/log/traefik/traefik.log
+  format: common
+  level: ERROR
+
+providers:
+  docker:
+    defaultRule: "Host(`{{ index .Labels \"com.docker.compose.service\" }}.andronics.io`)"
+    exposedByDefault: false
+    network: proxy
+    watch: true
+  file:
+    directory: /etc/traefik.d
+    watch: true
+
+serversTransport:
+  insecureSkipVerify: true
