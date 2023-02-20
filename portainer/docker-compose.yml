@@ -7,7 +7,7 @@ services:
     # https://docs.portainer.io/advanced/cli
     command:
       - "--admin-password-file"
-      - "/mnt/vault/secrets/PORTAINER_ADMIN_PASSWORD"
+      - "/run/secrets/portainer_admin_password"
       - "--data"
       - "/var/lib/portainer"
     environment:
@@ -20,12 +20,18 @@ services:
     networks:
       - proxy
     restart: unless-stopped
+    secrets:
+      - portainer_admin_password
     security_opt:
       - no-new-privileges:true
     volumes:
       - ./lib:/var/lib/portainer
       - /var/run/docker.sock:/var/run/docker.sock
       - vault:/mnt/vault
+
+secrets:
+  portainer_admin_password:
+    file: /mnt/vault/secrets/portainer/admin_password
 
 networks:
   proxy:
