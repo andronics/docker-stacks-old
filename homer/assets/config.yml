@@ -78,15 +78,15 @@ services:
     icon: "fas fa-cloud"
     items:
       - name: "Authelia"
-        logo: "assets/logos/authelia.png"
+        logo: "assets/logos/authelia.svg"
         subtitle: "SSO with TOTP, WebAuth and Duo"
         url: "https://auth.andronics.io"
       - name: "Portainer"
-        logo: "assets/logos/portainer.png"
+        logo: "assets/logos/portainer.svg"
         subtitle: "Container Management Platform"
         url: "https://portainer.andronics.io"
       - name: "Traefik"
-        logo: "assets/logos/traefik.png"
+        logo: "assets/logos/traefik.svg"
         subtitle: "Cloud Native Application Networking"
         url: "https://traefik.andronics.io"
 
@@ -94,12 +94,12 @@ services:
     icon: "fas fa-comments"
     items:
       - name: "Gmail"
-        logo: "assets/logos/gmail.png"
+        logo: "assets/logos/gmail.svg"
         subtitle: "Google Email Service"
         url: "https://mail.google.com"
         <<: *External
       - name: "Slack"
-        logo: "assets/logos/slack.png"
+        logo: "assets/logos/slack.svg"
         subtitle: "Instant Messaging For Teams"
         url: "https://app.slack.com/client/T02GR89MNMQ"
         <<: *External
@@ -109,7 +109,7 @@ services:
         url: "https://messages.android.com"
         <<: *External
       - name: "WhatsApp"
-        logo: "assets/logos/whatsapp.png"
+        logo: "assets/logos/whatsapp.svg"
         subtitle: "Multi Platform Messaging"
         url: "https://web.whatsapp.com"
         <<: *External
@@ -118,7 +118,7 @@ services:
     icon: "fas fa-newspaper"
     items:
       - name: "BBC"
-        logo: "assets/logos/bbc-news.png"
+        logo: "assets/logos/bbc-news.svg"
         subtitle: "Media Server"
         url: "https://www.bbc.co.uk/news/"
         <<: *External
@@ -128,7 +128,7 @@ services:
         url: "https://www.derrynow.com/"
         <<: *External
       - name: "Google"
-        logo: "assets/logos/google-news.png"
+        logo: "assets/logos/google-news.svg"
         subtitle: "Media Server"
         url: "https://news.google.com/"
         <<: *External
@@ -137,12 +137,12 @@ services:
     icon: "fas fa-photo-video"
     items:
       - name: "Curiosity Stream"
-        logo: "assets/logos/curiosity-stream.webp"
+        logo: "assets/logos/curiosity-stream.svg"
         subtitle: "Media Server"
         url: "https://curiositystream.com"
         <<: *External
       - name: "Emby"
-        logo: "assets/logos/emby.png"
+        logo: "assets/logos/emby.svg"
         subtitle: "Media Server"
         url: "https://emby.andronics.io/"
         <<: *Docker
@@ -157,22 +157,22 @@ services:
         url: "https://nebula.app"
         <<: *External
       - name: "Plex"
-        logo: "assets/logos/plex.png"
+        logo: "assets/logos/plex.svg"
         subtitle: "Media Server"
         url: "https://plex.andronics.io/"
         <<: *Docker
       - name: "Spotify"
-        logo: "assets/logos/spotify.png"
+        logo: "assets/logos/spotify.svg"
         subtitle: "Media Server"
         url: "https://open.spotify.com/browse/featured"
         <<: *External
       - name: "TikTok"
-        logo: "assets/logos/tiktok.png"
+        logo: "assets/logos/tiktok.svg"
         subtitle: "Media Server"
         url: "https://www.tiktok.com/"
         <<: *External
       - name: "Youtube"
-        logo: "assets/logos/youtube.png"
+        logo: "assets/logos/youtube.svg"
         subtitle: "Media Server"
         url: "https://www.youtube.com"
         <<: *External
