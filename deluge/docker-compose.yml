@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  deluge:
+    image: ghcr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/London
+    labels:
+      traefik.enable: true
+      traefik.http.routers.deluge.entrypoints: web-secure
+      traefik.http.services.deluge.loadbalancer.passHostHeader: true
+    networks:
+      - proxy
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - transfer:/transfer
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  transfer:
+    external: true
+
+    
+
+      
+      
