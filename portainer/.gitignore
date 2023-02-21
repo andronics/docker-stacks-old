@@ -1,0 +1,6 @@
+*.db
+*.key
+*.pub
+*.zip
+lib
+!**/.gitkeep
