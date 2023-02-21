@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  prowlarr:
+    image: ghcr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      AUTO_UPDATE: true
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/London
+    labels:
+      traefik.enable: true
+      traefik.http.routers.prowlarr.entrypoints: web-secure
+      traefik.http.services.prowlarr.loadbalancer.passHostHeader: true
+    networks:
+      - proxy
+      - vpn
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+
+networks:
+  proxy:
+    external: true
+  vpn:
+    external: true
+    
+
+      
+      
