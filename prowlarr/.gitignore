@@ -1,0 +1,10 @@
+*.db
+*.db-*
+*.pid
+*.zip
+config/asp
+config/Backups
+config/Definitions
+config/logs
+config/MediaCover
+!**/.gitkeep
